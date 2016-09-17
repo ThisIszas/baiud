@@ -32,12 +32,10 @@ def get_cookies():
 
 def start_2(count, pn):
 
-    start()
-    get_cookies()
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko)\
     Chrome/52.0.2743.116 Safari/537.36', 'Referer': 'http://news.baidu.com/'}
 
-    word = raw_input("请输入关键字.")
+    word = raw_input("请输入关键字:")
     search_url = change_word(word)
     url = change_pn(search_url, pn)
 
@@ -49,14 +47,17 @@ def start_2(count, pn):
     news_count = "".join(temp)
     news_count = int(news_count)
 
-    print news_count
     save(count, 0, word)
     save(count, 1, news_count)
+    print word + " 总数:" + str(news_count)
     time.sleep(5)
     count += 1
     pn += 20
+
     start_2(count, pn)
 
 
 if __name__ == '__main__':
-    start_2(0,0)
+    start()
+    get_cookies()
+    start_2(1,0)
