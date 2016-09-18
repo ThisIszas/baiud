@@ -10,18 +10,6 @@ from Initial import start
 from SaveInfo import save
 from SaveInfo_2 import save2
 
-def change_pn(url, pn):
-    search_url = re.sub('pagenum', str(pn), url)
-    return search_url
-
-
-def change_word(word):
-    init_search_url = "http://news.baidu.com/ns?word=???&\
-    pn=pagenum&cl=2&ct=1&tn=news&rn=20&ie=utf-8&bt=0&et=0&rsv_page=1"
-    word_encode = urllib.quote(word)
-    search_url = re.sub('\?\?\?', word_encode, init_search_url)
-    return search_url
-
 
 def get_cookies():
     cj = cookielib.LWPCookieJar()
